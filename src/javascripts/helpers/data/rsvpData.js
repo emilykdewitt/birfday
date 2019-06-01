@@ -18,4 +18,8 @@ const getRsvpsByBirthdayId = birthdayId => new Promise((resolve, reject) => {
     .catch(err => reject(err));
 });
 
-export default { getRsvpsByBirthdayId };
+const addRsvp = rsvp => axios.post(`${firebaseUrl}/rsvps.json`, rsvp);
+
+const editRsvp = (rsvpId, rsvpObject) => axios.put(`${firebaseUrl}/rsvps/${rsvpId}.json`, rsvpObject);
+
+export default { getRsvpsByBirthdayId, addRsvp, editRsvp };
